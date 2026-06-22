@@ -98,3 +98,17 @@ All labels will be manually reviewed before inclusion in the final dataset.
 After evaluation, misclassified examples will be provided to ChatGPT to identify possible patterns in model errors.
 
 Any suggested patterns will be manually verified before being included in the evaluation report.
+
+
+## Post-Implementation Reflection
+
+The original success criteria assumed that the fine-tuned DistilBERT model would outperform the zero-shot baseline. After evaluation, this assumption proved incorrect.
+
+Results:
+
+- Fine-tuned DistilBERT Accuracy: 40%
+- Zero-shot Llama 3.3 Accuracy: 100%
+
+The fine-tuned model learned to identify Analysis comments but struggled to distinguish Hot Take and Reaction examples. In contrast, the larger instruction-tuned language model already possessed strong knowledge of discourse patterns and achieved perfect performance on the 30-example test set.
+
+This outcome demonstrates that small-scale fine-tuning on a 200-example dataset may not always improve performance over modern large language models and highlights the importance of evaluating assumptions through experimentation.
